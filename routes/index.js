@@ -9,9 +9,12 @@ router.get('/', function(req, res, next) {
 router.get('/home', function(req, res, next) {
   res.render('index',{title:'The Online Blood Bank'});
 });
-// Donor page
+// Donor
 router.get('/donor', function(req, res, next) {
-  res.render('donor',{title:'Donor'});
+    if(req.session.username) 
+      res.render('donor',{title:"Donor"});
+    else 
+      res.render('login',{title:"Login"});
 });
 // Search Donor
 router.get('/search', function(req, res, next) {
