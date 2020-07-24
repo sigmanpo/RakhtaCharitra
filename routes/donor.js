@@ -10,16 +10,16 @@ router.get("/signin",(req, res, next) => {
         if(err) throw err;
         if(results.length > 0) {
             req.session.username = username;
-            res.render('donor',{title:"Donor"});
+            res.json({"success":true,"message":"Login Success"})
         } else {
-            res.render('login',{title:"Login"});
+            res.json({"success":true,"message":"Username or Password is Invalid"});
         }
     });
 });
 
 router.get("/logout",(req,res,next) => {
     req.session.username = null;
-    res.render('login',{title:"Login"});
+    res.redirect('../../home');
 });
 
 module.exports = router;
