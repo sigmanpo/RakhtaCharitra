@@ -3,11 +3,11 @@ var router = express.Router();
 
 // Home page 
 router.get('/', function(req, res, next) {
-  res.render('index',{title:'The Online Blood Bank'});
+  res.render('home',{title:'The Online Blood Bank'});
 });
 // Home Page
 router.get('/home', function(req, res, next) {
-  res.render('index',{title:'The Online Blood Bank'});
+  res.render('home',{title:'The Online Blood Bank'});
 });
 // Donor
 router.get('/donor', function(req, res, next) {
