@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="A Online Blood bank by sigma NGO, Abhijeet Sharma">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta name="theme-color" content="#d2190b">
+
+    <title> <%=title%> </title>
+    
+    <link rel="stylesheet" href="/stylesheets/w3.css">
+    <link rel="stylesheet" href="./stylesheets/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        body,h1,h2,h3,h4,h5,h6 { font-family: "Lato", sans-serif }
+        .w3-bar,h1,button { font-family: "Montserrat", sans-serif }
+        .fa-anchor,.fa-coffee { font-size: 200px }
+        /* Smooth */
+        html {scroll-behavior: smooth;}
+        /* stop to select */
+        body{-webkit-user-select:none;-moz-user-select:-moz-none;
+        -ms-user-select:none;user-select:none}
+
+        /* scollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #ff8981; }
+        ::-webkit-scrollbar-thumb { background: rgb(255, 255, 255); border:1px solid rgb(59, 59, 59) }
+        /* ::-webkit-scrollbar-thumb:hover { background: rgb(104, 104, 104); } */
+    </style>
+
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png" />
+
+</head>
+
+<body oncontextmenu="return false">
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+            <a rel="noreferrer" aria-label="menu" class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-red w3-large w3-red"
+                href="javascript:void(0);" onclick="toggleNavBar()"><i class="fa fa-bars"></i></a>
+            <a rel="noreferrer" class="w3-bar-item w3-button w3-padding-large w3-white">RakhtaCharitra.org</a>
+            <a rel="noreferrer" href="home" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"> <i class="fa fa-home"></i> Home </a>
+            <a rel="noreferrer" href="donor" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"> <i class="fa fa-envira"></i> Donor </a>
+            <a rel="noreferrer" href="search" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"> <i class="fa fa-search"></i> Search </a>
+            <input class="search-bar w3-input w3-bar-item  w3-hide-medium w3-hide-small w3-padding-large" type="search" placeholder="  Search Donor near you  ">
+        </div>
+
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+            <a rel="noreferrer" href="home" class="w3-bar-item w3-button w3-padding-large"> <i class="fa fa-home"></i> Home </a>
+            <a rel="noreferrer" href="donor" class="w3-bar-item w3-button w3-padding-large"> <i class="fa fa-envira"></i> Donor </a>
+            <a rel="noreferrer" href="search" class="w3-bar-item w3-button w3-padding-large"> <i class="fa fa-search"></i> Search </a>
+        </div>
+    </div>
