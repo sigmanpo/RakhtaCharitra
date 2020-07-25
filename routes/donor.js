@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../configs/db.config');
 
-router.get("/signin",(req, res, next) => {
+router.post("/signin",(req, res, next) => {
     let username = req.body.username;
     let password = req.body.password;
     
@@ -10,9 +10,9 @@ router.get("/signin",(req, res, next) => {
         if(err) throw err;
         if(results.length > 0) {
             req.session.username = username;
-            res.json({"success":true,"message":"Login Success"})
+            res.status(200).json({"success":true,"message":"Login Success"})
         } else {
-            res.json({"success":true,"message":"Username or Password is Invalid"});
+            res.status(401).json({"success":false,"message":"Username or Password is Invalid"});
         }
     });
 });
@@ -34,7 +34,10 @@ router.post("/signup",(req,res,next) => {
     db.query("insert into donor values(null,?,?,?,?,?,?,?,?,?,?,?,?)",
     [fullname,username,password,email,phone,dob,bloodgroup,gender,state,pincode,city,area],
     (err,results) => {
-        if(err) res.json({"success":false,"message":err});
+        if(err) {
+            if(err.errno == 1062) res.json({"success":false,"message":"Username already Registered"});
+            res.status(400);
+        }
         if(results) {
             res.json({"success":true,"message":"Registration Successfull"});
         }
@@ -43,6 +46,7 @@ router.post("/signup",(req,res,next) => {
 
 router.get("/logout",(req,res,next) => {
     req.session.username = null;
+    req.session.destroy();
     res.redirect('../../home');
 });
 
