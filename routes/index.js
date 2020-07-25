@@ -21,10 +21,6 @@ router.get('/login',(req,res,next) => {
     res.render('login',{title:"Login"});
 });
 
-router.get('/register',(req,res,next) => {
-  res.render('register',{title:"Register"});
-});
-
 // Search Donor
 router.get('/search', function(req, res, next) {
   res.render('search',{title:'Search Donor'});

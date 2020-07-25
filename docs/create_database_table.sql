@@ -2,9 +2,9 @@ create database rakhtacharitra;
 
 create table donor (
     
-    id int not null auto_increment primary key,
+    id int not null auto_increment,
     fullname varchar(100) not null,
-    username varchar(100) not null,
+    username varchar(100) not null unique,
     password varchar(100) not null,
     email varchar(100),
     phone bigint(15),
@@ -14,7 +14,8 @@ create table donor (
     state varchar(100) not null,
     pincode bigint(10) not null,
     city varchar(100) not null,
-    area varchar(100) not null
+    area varchar(100) not null,
+    primary key(id,username)
 
 );
 
