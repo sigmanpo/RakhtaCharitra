@@ -36,7 +36,8 @@ router.post("/signup",(req,res,next) => {
     (err,results) => {
         if(err) {
             if(err.errno == 1062) res.json({"success":false,"message":"Username already Registered"});
-            res.status(400);
+            if(err.errno == 1048) res.status(400).json({"message":"Required Fields must be filled"});
+            
         }
         if(results) {
             res.json({"success":true,"message":"Registration Successfull"});
